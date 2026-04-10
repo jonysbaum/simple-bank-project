@@ -8,11 +8,11 @@ public class Customer {
     private int accountId;
 
     public Customer(int id, String name, String username, String password, int accountId) {
-        this.id = id;
-        this.name = name;
-        this.username = username;
-        this.password = password;
-        this.accountId = accountId;
+        setId(id);
+        setName(name);
+        setUsername(username);
+        setPassword(password);
+        setAccountId(accountId);
     }
 
     public int getId() {
