@@ -44,6 +44,27 @@ public class DataSource {
 
     public static void main(String[] args) throws SQLException {
         Customer customer = getCustomer("twest8o@friendfeed.com");
+        Account account = getAccount(10385);
         System.out.println(customer.getName());
+        System.out.println("$" + account.getBalance());
+    }
+
+public static Account getAccount(int id) throws SQLException {
+        String sql = "select * from accounts where id = ?";
+        Account account = null;
+        try (Connection connection = connect();
+        PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                account = new Account(
+                        resultSet.getInt("id"),
+                        resultSet.getString("type"),
+                        resultSet.getDouble("balance")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return account;
     }
 }

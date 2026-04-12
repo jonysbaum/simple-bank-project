@@ -6,3 +6,9 @@ The code is basic and leaves room for refactor and improvement.
 
 ## 0.2.0
 - set up simple Sqlite connection to bank.db
+
+## 0.2.1
+- setup/updated drivers for connection to in-project db, tested connection successfully
+
+## 0.3.0
+- set up getAccount method in DataSource.java with successful output 
