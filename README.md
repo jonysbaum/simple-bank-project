@@ -2,6 +2,9 @@
 This is a project for setting up classes and a simple in-project database connection.
 The code is basic and leaves room for refactor and improvement.
 
+## 0.4.1
+- Pulled docker-image.yml and docker-publish.yml into .github/workflows
+
 ## 0.4.0
 - Set up Authenticator class with login and log out methods
 
