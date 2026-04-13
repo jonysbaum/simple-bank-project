@@ -2,8 +2,11 @@
 This is a project for setting up classes and a simple in-project database connection.
 The code is basic and leaves room for refactor and improvement.
 
+## 0.4.2
+- Add Dockerfile
+
 ## 0.4.1
-- Pulled docker-image.yml and docker-publish.yml into .github/workflows
+- Pull docker-image.yml and docker-publish.yml into .github/workflows
 
 ## 0.4.0
 - Set up Authenticator class with login and log out methods
@@ -18,4 +21,4 @@ The code is basic and leaves room for refactor and improvement.
 - set up simple Sqlite connection to bank.db
 
 ## 0.1.0
-- pulled in project shell and created Customer and Account class
+- pull in project shell and created Customer and Account class
