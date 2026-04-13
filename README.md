@@ -2,6 +2,10 @@
 This is a project for setting up classes and a simple in-project database connection.
 The code is basic and leaves room for refactor and improvement.
 
+## 0.5.0
+- Setup Menu class to handle simple account actions 
+- Modify Account class with additional deposit and withdraw methods
+
 ## 0.4.2
 - Add Dockerfile
 
@@ -12,10 +16,11 @@ The code is basic and leaves room for refactor and improvement.
 - Set up Authenticator class with login and log out methods
 
 ## 0.3.0
-- set up getAccount method in DataSource.java with successful output
+- Set up getAccount method in DataSource.java with successful output
 
 ## 0.2.1
-- setup/updated drivers for connection to in-project db, tested connection successfully
+- Setup/updated drivers for connection to in-project db,
+- Test connection successfully
 
 ## 0.2.0
 - set up simple Sqlite connection to bank.db
