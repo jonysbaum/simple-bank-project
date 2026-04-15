@@ -2,6 +2,9 @@
 This is a project for setting up classes and a simple in-project database connection.
 The code is basic and leaves room for refactor and improvement.
 
+## 0.5.1
+- Refactor Menu case to successfully choose menu option and accept respective user input
+
 ## 0.5.0
 - Setup Menu class to handle simple account actions 
 - Modify Account class with additional deposit and withdraw methods

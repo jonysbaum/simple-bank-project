@@ -1,5 +1,7 @@
 package bank;
 
+import bank.Exceptions.AmountException;
+
 import javax.security.auth.login.LoginException;
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -7,7 +9,7 @@ import java.util.Scanner;
 public class Menu {
     private Scanner scanner;
 
-    public static void main(String[] args) throws LoginException, SQLException {
+    public static void main(String[] args) throws LoginException, SQLException, AmountException {
         System.out.println("Welcome to the Bank. Please login.");
         Menu menu = new Menu();
         menu.scanner = new Scanner(System.in);
@@ -26,42 +28,41 @@ public class Menu {
         System.out.println("Please enter your password: ");
         String password = scanner.next();
         Customer customer = null;
-        try{
+        try {
             customer = Authenticator.login(username, password);
         } catch (LoginException e) {
-            System.out.println(e.getMessage());
+            System.out.println("There was an error" + e.getMessage());
         }
         return customer;
     }
 
-    private void showMenu(Customer customer, Account account) {
+    private void showMenu(Customer customer, Account account) throws AmountException {
         int selectedOption = 0;
         while (selectedOption != 4 && customer.isAuthenticated()) {
             System.out.println("===============================");
-            System.out.println("Please select an option:");
-            System.out.println("1. Deposit");
-            System.out.println("2. Withdraw");
-            System.out.println("3. View Balance");
-            System.out.println("4. Logout");
+            System.out.println("Please select an option: ");
+            System.out.println("1: Deposit");
+            System.out.println("2: Withdraw");
+            System.out.println("3: View Balance");
+            System.out.println("4: Logout");
             System.out.println("===============================");
 
             selectedOption = scanner.nextInt();
-            Double amount = scanner.nextDouble();
+            double amount = 0;
             switch (selectedOption) {
-                case 1:
-                    System.out.println("Enter amount to deposit:");
-                    account.deposit(amount);
-                    break;
-                case 2:
-                    System.out.println("Enter amount to withdraw:");
-                    account.withdraw(amount);
-                    break;
-                case 3:
-                    System.out.println("View current balance:" + account.getBalance());
-                    break;
+                case 1: System.out.println("Enter amount to deposit:");
+                        amount = scanner.nextDouble();
+                        account.deposit(amount);
+                        break;
+                case 2: System.out.println("Enter amount to withdraw:");
+                        amount = scanner.nextDouble();
+                        account.withdraw(amount);
+                        break;
+                case 3: System.out.println("View current balance:" + account.getBalance());
+                        break;
                 case 4: Authenticator.logout(customer);
-                    System.out.println("You have successfully logged out.");
-                    break;
+                        System.out.println("You have successfully logged out.");
+                        break;
                 default:
                     System.out.println("Invalid option");
             }
