@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Menu {
     private Scanner scanner;
 
-    public static void main(String[] args) throws LoginException, SQLException, AmountException {
+    public static void main(String[] args) throws SQLException, AmountException {
         System.out.println("Welcome to the Bank. Please login.");
         Menu menu = new Menu();
         menu.scanner = new Scanner(System.in);
@@ -22,7 +22,7 @@ public class Menu {
 
         menu.scanner.close();
     }
-    private Customer authenticateUser() throws LoginException {
+    private Customer authenticateUser() {
         System.out.println("Please enter your username: ");
         String username = scanner.next();
         System.out.println("Please enter your password: ");
@@ -48,7 +48,7 @@ public class Menu {
             System.out.println("===============================");
 
             selectedOption = scanner.nextInt();
-            double amount = 0;
+            double amount;
             switch (selectedOption) {
                 case 1: System.out.println("Enter amount to deposit:");
                         amount = scanner.nextDouble();
@@ -58,7 +58,7 @@ public class Menu {
                         amount = scanner.nextDouble();
                         account.withdraw(amount);
                         break;
-                case 3: System.out.println("View current balance:" + account.getBalance());
+                case 3: System.out.println("Current balance: $" + account.getBalance());
                         break;
                 case 4: Authenticator.logout(customer);
                         System.out.println("You have successfully logged out.");
