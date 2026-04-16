@@ -36,7 +36,7 @@ public class Menu {
         return customer;
     }
 
-    private void showMenu(Customer customer, Account account) throws AmountException {
+    private void showMenu(Customer customer, Account account) throws SQLException, AmountException {
         int selectedOption = 0;
         while (selectedOption != 4 && customer.isAuthenticated()) {
             System.out.println("===============================");

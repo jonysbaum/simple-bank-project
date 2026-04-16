@@ -2,6 +2,8 @@ package bank;
 
 import bank.Exceptions.AmountException;
 
+import java.sql.SQLException;
+
 public class Account {
     private int id;
 
@@ -39,21 +41,25 @@ public class Account {
         this.balance = balance;
     }
 
-    public void deposit(double amount) throws AmountException {
+    public void deposit(double amount) throws AmountException, SQLException {
         if (amount < 1) {
             throw new AmountException("The minimum deposit is $1.00");
         } else  {
             double newBalance = this.balance + amount;
             setBalance(newBalance);
+            DataSource.updateAccountBalance( id, newBalance);
         }
     }
 
-    public void withdraw(double amount)  {
-        if (amount > getBalance()) {
-            System.out.println("The amount is greater than the balance");
+    public void withdraw(double amount) throws AmountException, SQLException {
+        if (amount < 0) {
+            throw new AmountException("Withdraw amount must be greater than zero");
+        } else if (amount > getBalance()) {
+            throw new AmountException("Insufficient funds");
         } else {
-            double newBalance = this.balance - amount;
+            double newBalance = balance - amount;
             setBalance(newBalance);
+            DataSource.updateAccountBalance(id, newBalance);
         }
     }
 

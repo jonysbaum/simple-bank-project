@@ -2,6 +2,9 @@
 This is a project for setting up classes and a simple in-project database connection.
 The code is basic and leaves room for refactor and improvement.
 
+## 1.0.0
+- Simple Bank project complete, allows for login, logout, deposit, withdraw, and view balance
+
 ## 0.5.2
 - Modify Dockerfile and pom.xml to use Java 21 LTS
 
