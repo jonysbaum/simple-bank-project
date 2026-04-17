@@ -2,6 +2,9 @@
 This is a project for setting up classes and a simple in-project database connection.
 The code is basic and leaves room for refactor and improvement.
 
+## 1.0.1
+- Add better error/exception handling to Menu.java
+
 ## 1.0.0
 - Simple Bank project complete, allows for login, logout, deposit, withdraw, and view balance
 
@@ -32,7 +35,7 @@ The code is basic and leaves room for refactor and improvement.
 - Test connection successfully
 
 ## 0.2.0
-- set up simple Sqlite connection to bank.db
+- Set up simple Sqlite connection to bank.db
 
 ## 0.1.0
-- pull in project shell and created Customer and Account class
+- Pull in project shell and created Customer and Account class

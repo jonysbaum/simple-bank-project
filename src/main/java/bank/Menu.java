@@ -36,7 +36,7 @@ public class Menu {
         return customer;
     }
 
-    private void showMenu(Customer customer, Account account) throws SQLException, AmountException {
+    private void showMenu(Customer customer, Account account) throws SQLException {
         int selectedOption = 0;
         while (selectedOption != 4 && customer.isAuthenticated()) {
             System.out.println("===============================");
@@ -52,11 +52,21 @@ public class Menu {
             switch (selectedOption) {
                 case 1: System.out.println("Enter amount to deposit:");
                         amount = scanner.nextDouble();
-                        account.deposit(amount);
+                        try {
+                            account.deposit(amount);
+                        } catch (AmountException e){
+                            System.out.println(e.getMessage());
+                            System.out.println("Please try your deposit again");
+                        };
                         break;
                 case 2: System.out.println("Enter amount to withdraw:");
                         amount = scanner.nextDouble();
-                        account.withdraw(amount);
+                        try {
+                            account.withdraw(amount);
+                        } catch (AmountException e) {
+                            System.out.println(e.getMessage());
+                            System.out.println("Please try your withdraw again");
+                        };
                         break;
                 case 3: System.out.println("Current balance: $" + account.getBalance());
                         break;
@@ -64,7 +74,7 @@ public class Menu {
                         System.out.println("You have successfully logged out.");
                         break;
                 default:
-                    System.out.println("Invalid option");
+                    System.out.println("Please select a valid option.");
             }
         }
     }
